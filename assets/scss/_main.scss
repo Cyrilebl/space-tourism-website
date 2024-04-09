@@ -1,0 +1,251 @@
+$header-font: "Bellefair", serif;
+$main-font: "Barlow Condensed", sans-serif;
+
+$background: rgb(11, 13, 23);
+$main: rgb(255, 255, 255);
+$secondary: rgb(208, 214, 249);
+
+h1 {
+  @include fontStyle($main, $header-font, normal, 150px, uppercase);
+}
+
+h2 {
+  @include fontStyle($main, $header-font, normal, 80px, uppercase);
+}
+
+h3 {
+  @include fontStyle($main, $header-font, normal, 56px, uppercase);
+}
+
+h4 {
+  @include fontStyle($background, $header-font, normal, 32px, uppercase);
+}
+
+h5 {
+  @include fontStyle($main, $main-font, normal, 28px, uppercase);
+  letter-spacing: 4.75px;
+}
+
+h6 {
+  @include fontStyle($main, $header-font, normal, 28px, uppercase);
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  @include fontStyle($secondary, $main-font, normal, 18px, none);
+  line-height: 32px;
+  letter-spacing: 1.5px;
+}
+
+.data p {
+  @include fontStyle($secondary, $main-font, normal, 14px, uppercase);
+  letter-spacing: 2.35px;
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Header
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 55px;
+  position: relative;
+}
+
+header::before {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  z-index: 2;
+  content: "";
+  width: 35%;
+  height: 1px;
+  background-color: rgb(72, 75, 84);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  padding: 0 165px 0 123px;
+  height: 96px;
+  background-color: rgba($main, 0.04);
+  backdrop-filter: blur(81.55px);
+}
+
+nav a {
+  @include fontStyle($main, $main-font, normal, 16px, uppercase);
+  letter-spacing: 2.7px;
+  cursor: pointer;
+  position: relative;
+}
+
+nav strong {
+  margin-right: 14px;
+}
+
+nav a::before {
+  position: absolute;
+  content: "";
+  top: 55px;
+  left: 0;
+  background-color: $main;
+  width: 100%;
+  height: 3px;
+  opacity: 50.21%;
+  scale: 0;
+  transition: 0.4s;
+}
+
+nav a:hover::before {
+  scale: 100%;
+}
+
+nav a:focus::before {
+  opacity: 100%;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media all and (max-width: 1360px) {
+  h2 {
+    @include fontStyle($main, $header-font, normal, 70px, uppercase);
+  }
+
+  h3 {
+    @include fontStyle($main, $header-font, normal, 40px, uppercase);
+  }
+
+  h4 {
+    @include fontStyle($background, $header-font, normal, 24px, uppercase);
+  }
+
+  h5 {
+    @include fontStyle($secondary, $main-font, normal, 20px, uppercase);
+    letter-spacing: 3.38px;
+  }
+
+  p {
+    @include fontStyle($secondary, $main-font, normal, 16px, none);
+    line-height: 28px;
+  }
+
+  // Header
+
+  header {
+    margin-top: 0;
+    margin-left: 39px;
+  }
+
+  header::before {
+    width: 0;
+  }
+
+  nav {
+    gap: 37px;
+    padding: 0 48px;
+  }
+
+  nav a {
+    @include fontStyle($main, $main-font, normal, 14px, uppercase);
+    letter-spacing: 2.36px;
+  }
+
+  nav strong {
+    display: none;
+  }
+}
+
+@media all and (max-width: 600px) {
+  h1 {
+    @include fontStyle($main, $header-font, normal, 80px, uppercase);
+  }
+
+  h2 {
+    @include fontStyle($main, $header-font, normal, 56px, uppercase);
+  }
+
+  h3 {
+    @include fontStyle($main, $header-font, normal, 24px, uppercase);
+  }
+
+  h4 {
+    @include fontStyle($background, $header-font, normal, 16px, uppercase);
+  }
+
+  h5 {
+    @include fontStyle($secondary, $main-font, normal, 16px, uppercase);
+    letter-spacing: 2.7px;
+  }
+
+  p {
+    @include fontStyle($secondary, $main-font, normal, 15px, none);
+    line-height: 25px;
+  }
+
+  // Header
+
+  header {
+    margin-left: 24px;
+  }
+
+  header img {
+    margin-top: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 118px 0 0 32px;
+    width: 65%;
+    min-height: 100vh;
+    backdrop-filter: blur(40px);
+    z-index: 2;
+    margin-right: -100%;
+  }
+
+  nav.mobile {
+    margin-right: 0;
+  }
+
+  .hamburger {
+    display: block;
+    margin-right: 24px;
+    cursor: pointer;
+    width: 21px;
+    height: 21px;
+    z-index: 2;
+  }
+
+  nav a {
+    @include fontStyle($main, $main-font, normal, 16px, uppercase);
+    letter-spacing: 2.7px;
+  }
+
+  nav strong {
+    display: initial;
+    margin-right: 11px;
+  }
+}

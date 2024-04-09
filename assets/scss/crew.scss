@@ -1,0 +1,166 @@
+@import "./_mixins.scss";
+@import "./_main.scss";
+
+body {
+  background-image: url("../crew/background-crew-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+// Crew
+
+main {
+  margin: 50px 160px 0 160px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 34px 450px 40px;
+  grid-template-areas:
+    "title img"
+    "text img"
+    "btn img";
+}
+
+strong {
+  margin-right: 24px;
+  opacity: 0.25;
+}
+
+.image {
+  grid-area: img;
+  justify-self: end;
+}
+
+.image img {
+  object-fit: cover;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+main h4 {
+  color: rgba($main, 50.42%);
+}
+
+.text {
+  grid-area: text;
+  align-self: center;
+}
+
+.text h3 {
+  margin: 15px 0 27px 0;
+}
+
+.text p {
+  width: 445px;
+}
+
+.btns {
+  grid-area: btn;
+  align-self: center;
+  display: flex;
+  gap: 24px;
+}
+
+.btn {
+  width: 15px;
+  height: 15px;
+  clip-path: circle();
+  background-color: $main;
+  opacity: 0.25;
+  border: none;
+  cursor: pointer;
+}
+
+@media all and (max-width: 1360px) {
+  body {
+    background-image: url("../crew/background-crew-tablet.jpg");
+    max-height: none;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  // Crew
+
+  main {
+    margin: 40px;
+    margin-bottom: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 24px 250px 100px 1fr;
+    grid-template-areas:
+      "title"
+      "text"
+      "btn"
+      "img";
+  }
+
+  strong {
+    margin-right: 20px;
+  }
+
+  .image {
+    justify-self: center;
+    max-width: 450px;
+  }
+
+  .text {
+    align-self: flex-end;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .text h3 {
+    margin: 8px 0 16px 0;
+  }
+
+  .btns {
+    justify-self: center;
+    gap: 16px;
+  }
+
+  .btn {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  body {
+    background-image: url("../crew/background-crew-mobile.jpg");
+  }
+
+  // Crew
+
+  main {
+    margin: 34px 24px;
+    grid-template-rows: 50px 230px 60px 1fr;
+    grid-template-areas:
+      "title"
+      "img"
+      "btn"
+      "text";
+  }
+
+  main h5 {
+    justify-self: center;
+  }
+
+  strong {
+    margin-right: 16px;
+  }
+
+  .image {
+    width: 100%;
+    border-bottom: 1px solid rgba($main, 0.17);
+    display: flex;
+    justify-content: center;
+  }
+
+  .image img {
+    max-height: 230px;
+  }
+
+  .text p {
+    width: 330px;
+  }
+}

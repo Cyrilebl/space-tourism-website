@@ -1,0 +1,171 @@
+@import "./_mixins.scss";
+@import "./_main.scss";
+
+body {
+  background-image: url("../technology/background-technology-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+// Crew
+
+main {
+  margin: 50px 0 0 160px;
+  display: grid;
+  grid-template-columns: 170px 500px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "title title title"
+    "btn text img";
+}
+
+main h5 {
+  grid-area: title;
+}
+
+strong {
+  margin-right: 24px;
+  opacity: 0.25;
+}
+
+main img {
+  grid-area: img;
+  justify-self: end;
+  object-fit: cover;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.text {
+  grid-area: text;
+  align-self: center;
+}
+
+.text h6 {
+  @include fontStyle($secondary, $main-font, normal, 16px, uppercase);
+  letter-spacing: 2.7px;
+}
+
+.text h3 {
+  margin: 11px 0 17px 0;
+}
+
+.btns {
+  grid-area: btn;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  font-family: $header-font;
+  color: $main;
+  font-size: 32px;
+  background-color: transparent;
+  border: 1px solid rgba($main, 0.25);
+  cursor: pointer;
+}
+
+@media all and (max-width: 1360px) {
+  body {
+    background-image: url("../technology/background-technology-tablet.jpg");
+    max-height: none;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  // Crew
+
+  main {
+    margin: 40px 0 95px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 84px 1fr 116px 280px;
+    grid-template-areas:
+      "title"
+      "img"
+      "btn"
+      "text";
+  }
+
+  main h5 {
+    margin-left: 40px;
+  }
+
+  strong {
+    margin-right: 20px;
+  }
+
+  main img {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .text {
+    text-align: center;
+    justify-self: center;
+    align-self: flex-end;
+  }
+
+  .text h3 {
+    margin: 16px 0;
+  }
+
+  .text p {
+    width: 460px;
+  }
+
+  .btns {
+    justify-self: center;
+    align-self: flex-end;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  body {
+    background-image: url("../technology/background-technology-mobile.jpg");
+  }
+
+  // Crew
+
+  main {
+    margin: 34px 0 80px 0;
+    grid-template-rows: 50px 1fr 74px 270px;
+  }
+
+  main h5 {
+    margin-left: 24px;
+    text-align: center;
+  }
+
+  strong {
+    margin-right: 16px;
+  }
+
+  .text h3 {
+    margin: 9px 0 16px 0;
+  }
+
+  .text p {
+    width: 330px;
+  }
+
+  .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
