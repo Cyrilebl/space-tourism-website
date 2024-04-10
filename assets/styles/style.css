@@ -11,7 +11,7 @@ h2 {
   color: white;
   font-family: "Bellefair", serif;
   font-weight: normal;
-  font-size: 100px;
+  font-size: 80px;
   text-transform: uppercase; }
 
 h3 {
@@ -55,13 +55,9 @@ p {
   line-height: 32px;
   letter-spacing: 1.5px; }
 
-.data p {
-  color: #d0d6f9;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: normal;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2.35px; }
+strong {
+  margin-right: 24px;
+  opacity: 0.25; }
 
 *,
 ::before,
@@ -113,66 +109,60 @@ nav strong {
 
 nav a::before {
   position: absolute;
-  content: "";
   top: 55px;
   left: 0;
-  background-color: white;
+  content: "";
   width: 100%;
   height: 3px;
-  opacity: 50.21%;
+  background-color: rgba(255, 255, 255, 0.5);
   scale: 0;
   transition: 0.4s; }
 
 nav a:hover::before {
   scale: 100%; }
 
-nav a:focus::before {
-  opacity: 100%; }
+.activeNav {
+  position: relative; }
+
+.activeNav:after {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: white; }
 
 .hamburger {
   display: none; }
 
 @media all and (max-width: 1360px) {
+  header::before {
+    width: 30%; } }
+@media all and (max-width: 1260px) {
   h2 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 80px;
-    text-transform: uppercase; }
+    font-size: 70px; }
 
   h3 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 40px;
-    text-transform: uppercase; }
+    font-size: 40px; }
 
   h4 {
-    color: #0b0d17;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 24px;
-    text-transform: uppercase; }
+    font-size: 24px; }
 
   h5 {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 20px;
-    text-transform: uppercase;
     letter-spacing: 3.38px; }
 
   p {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: none;
     line-height: 28px; }
+
+  strong {
+    margin-right: 20px; }
 
   header {
     margin-top: 0;
-    margin-left: 39px; }
+    margin-left: 40px; }
 
   header::before {
     width: 0; }
@@ -182,59 +172,34 @@ nav a:focus::before {
     padding: 0 48px; }
 
   nav a {
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 14px;
-    text-transform: uppercase;
     letter-spacing: 2.36px; }
 
   nav strong {
     display: none; } }
 @media all and (max-width: 600px) {
   h1 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 80px;
-    text-transform: uppercase; }
+    font-size: 80px; }
 
   h2 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 56px;
-    text-transform: uppercase; }
+    font-size: 56px; }
 
   h3 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 24px;
-    text-transform: uppercase; }
+    font-size: 24px; }
 
   h4 {
-    color: #0b0d17;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 16px;
-    text-transform: uppercase; }
+    font-size: 16px; }
 
   h5 {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: uppercase;
     letter-spacing: 2.7px; }
 
   p {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 15px;
-    text-transform: none;
     line-height: 25px; }
+
+  strong {
+    margin-right: 16px; }
 
   header {
     margin-left: 24px; }
@@ -271,11 +236,7 @@ nav a:focus::before {
     z-index: 2; }
 
   nav a {
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: uppercase;
     letter-spacing: 2.7px; }
 
   nav strong {
@@ -285,14 +246,13 @@ body {
   background-image: url("../home/background-home-desktop.jpg");
   background-repeat: no-repeat;
   background-position: right;
-  background-size: cover;
-  max-height: 100vh; }
+  background-size: cover; }
 
 .introduction {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 180px; }
+  margin: 0 180px 50px 180px; }
 
 .introduction__text {
   margin-top: 150px;
@@ -331,13 +291,11 @@ body {
 .introduction__btn:hover span {
   scale: 1.5; }
 
-@media all and (max-width: 1360px) {
+@media all and (max-width: 1260px) {
   body {
     background-image: url("../home/background-home-tablet.jpg");
     background-position: bottom;
-    background-size: cover;
-    max-height: none;
-    min-height: 100vh; }
+    background-size: cover; }
 
   .introduction {
     flex-direction: column;

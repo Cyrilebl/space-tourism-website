@@ -6,7 +6,6 @@ body {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  max-height: 100vh;
 }
 
 // Introduction
@@ -15,7 +14,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 180px;
+  margin: 0 180px 50px 180px;
 }
 
 .introduction__text {
@@ -62,13 +61,11 @@ body {
   scale: 1.5;
 }
 
-@media all and (max-width: 1360px) {
+@media all and (max-width: $widthTablet) {
   body {
     background-image: url("../home/background-home-tablet.jpg");
     background-position: bottom;
     background-size: cover;
-    max-height: none;
-    min-height: 100vh;
   }
 
   // Introduction
@@ -95,7 +92,7 @@ body {
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $widthSmartphone) {
   body {
     background-image: url("../home/background-home-mobile.jpg");
   }

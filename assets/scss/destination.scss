@@ -14,11 +14,6 @@ main {
   margin: 50px 160px 0 160px;
 }
 
-strong {
-  margin-right: 24px;
-  opacity: 0.25;
-}
-
 .descriptions {
   display: flex;
   justify-content: center;
@@ -27,9 +22,17 @@ strong {
   margin-top: 50px;
 }
 
-.descriptions img {
+.image img {
   width: 445px;
   height: 445px;
+  transform: rotate(0);
+  animation: rotate 120s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .links {
@@ -49,10 +52,9 @@ strong {
   content: "";
   bottom: -12px;
   left: 0;
-  background-color: $main;
+  background-color: rgba($main, 0.5);
   width: 100%;
   height: 3px;
-  opacity: 50.21%;
   scale: 0;
   transition: 0.4s;
 }
@@ -65,8 +67,9 @@ strong {
   scale: 100%;
 }
 
-.links a:focus::before {
-  opacity: 100%;
+.active {
+  text-decoration: underline 3px $main;
+  text-underline-offset: 12px;
 }
 
 .text {
@@ -86,10 +89,12 @@ strong {
 }
 
 .data p {
+  @include fontStyle($secondary, $main-font, normal, 14px, uppercase);
+  letter-spacing: 2.35px;
   margin-bottom: 12px;
 }
 
-@media all and (max-width: 1360px) {
+@media all and (max-width: $widthTablet) {
   body {
     background-image: url("../destination/background-destination-tablet.jpg");
     max-height: none;
@@ -102,10 +107,6 @@ strong {
     margin: 40px;
   }
 
-  strong {
-    margin-right: 20px;
-  }
-
   .descriptions {
     flex-direction: column;
     justify-content: center;
@@ -114,7 +115,7 @@ strong {
     margin-top: 60px;
   }
 
-  .descriptions img {
+  .image img {
     width: 300px;
     height: 300px;
   }
@@ -139,7 +140,7 @@ strong {
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $widthSmartphone) {
   body {
     background-image: url("../destination/background-destination-mobile.jpg");
   }
@@ -159,9 +160,14 @@ strong {
     margin-top: 32px;
   }
 
-  .descriptions img {
+  .image img {
     width: 170px;
     height: 170px;
+  }
+
+  .links a {
+    font-size: 14px;
+    letter-spacing: 2.35px;
   }
 
   .text {

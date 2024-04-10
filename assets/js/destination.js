@@ -8,45 +8,29 @@ async function fetchData(index) {
   }
 }
 
-window.onload = () => {
-  fetchData(0);
-};
-
-const moon = document.querySelector(".link:nth-child(1)");
-const mars = document.querySelector(".link:nth-child(2)");
-const europa = document.querySelector(".link:nth-child(3)");
-const titan = document.querySelector(".link:nth-child(4)");
-
-moon.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(0);
-});
-mars.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(1);
-});
-europa.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(2);
-});
-titan.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(3);
-});
-
 function generateDestinations(destinations) {
-  const image = document.querySelector("main img");
+  const image = document.querySelector(".image");
   const text = document.querySelector(".text");
-  const distance = document.querySelector(".distance h6");
-  const travel = document.querySelector(".travel h6");
+
+  const distance = document.querySelector(".distance");
+  const travel = document.querySelector(".travel");
+
+  const ditanceData = distance.querySelector("h6");
+  const travelData = travel.querySelector("h6");
 
   image.innerHTML = "";
   text.innerHTML = "";
-  travel.innerHTML = "";
-  distance.innerHTML = "";
+  if (ditanceData) {
+    distance.removeChild(ditanceData);
+  }
+  if (travelData) {
+    travel.removeChild(travelData);
+  }
 
-  image.src = destinations.images.webp;
-  image.alt = `${destinations.name} planet image`;
+  const imgElement = document.createElement("img");
+  imgElement.src = destinations.images.webp;
+  imgElement.alt = `${destinations.name} planet image`;
+  image.appendChild(imgElement);
 
   const nameElement = document.createElement("h2");
   nameElement.innerText = destinations.name;
@@ -56,7 +40,58 @@ function generateDestinations(destinations) {
   descriptionElement.innerText = destinations.description;
   text.appendChild(descriptionElement);
 
-  distance.innerText = destinations.distance;
+  const distanceElement = document.createElement("h6");
+  distanceElement.innerText = destinations.distance;
+  distance.appendChild(distanceElement);
 
-  travel.innerText = destinations.travel;
+  const travelElement = document.createElement("h6");
+  travelElement.textContent = destinations.travel;
+  travel.appendChild(travelElement);
 }
+
+////// Add active classList and change content //////
+
+function removeActiveClass() {
+  links.forEach((link) => {
+    link.classList.remove("active");
+  });
+}
+
+let currentIndex = 0;
+
+// Function to handle navigation with keyboard
+function keyboardNavigation(e) {
+  // Check if left or right arrow key is pressed
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    removeActiveClass();
+
+    // Update currentIndex with constraint
+    currentIndex = Math.max(
+      0,
+      Math.min(currentIndex + (e.key === "ArrowLeft" ? -1 : 1), 3)
+    );
+
+    links[currentIndex].classList.add("active");
+    fetchData(currentIndex);
+  }
+}
+
+// Default content
+window.onload = () => {
+  fetchData(0);
+};
+
+// Content on click and keydown
+let links = document.querySelectorAll(".link");
+
+for (let i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    fetchData(i);
+
+    removeActiveClass();
+    links[i].classList.add("active");
+  });
+}
+
+document.addEventListener("keydown", keyboardNavigation);

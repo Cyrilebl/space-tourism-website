@@ -1,9 +1,15 @@
+// Fonts
 $header-font: "Bellefair", serif;
 $main-font: "Barlow Condensed", sans-serif;
 
+// Colors
 $background: rgb(11, 13, 23);
 $main: rgb(255, 255, 255);
 $secondary: rgb(208, 214, 249);
+
+// Width for media queries
+$widthTablet: 1260px;
+$widthSmartphone: 600px;
 
 h1 {
   @include fontStyle($main, $header-font, normal, 150px, uppercase);
@@ -40,9 +46,9 @@ p {
   letter-spacing: 1.5px;
 }
 
-.data p {
-  @include fontStyle($secondary, $main-font, normal, 14px, uppercase);
-  letter-spacing: 2.35px;
+strong {
+  margin-right: 24px;
+  opacity: 0.25;
 }
 
 *,
@@ -99,13 +105,12 @@ nav strong {
 
 nav a::before {
   position: absolute;
-  content: "";
   top: 55px;
   left: 0;
-  background-color: $main;
+  content: "";
   width: 100%;
   height: 3px;
-  opacity: 50.21%;
+  background-color: rgba($main, 0.5);
   scale: 0;
   transition: 0.4s;
 }
@@ -114,8 +119,18 @@ nav a:hover::before {
   scale: 100%;
 }
 
-nav a:focus::before {
-  opacity: 100%;
+.activeNav {
+  position: relative;
+}
+
+.activeNav:after {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: $main;
 }
 
 .hamburger {
@@ -123,33 +138,43 @@ nav a:focus::before {
 }
 
 @media all and (max-width: 1360px) {
+  header::before {
+    width: 30%;
+  }
+}
+
+@media all and (max-width: $widthTablet) {
   h2 {
-    @include fontStyle($main, $header-font, normal, 70px, uppercase);
+    font-size: 70px;
   }
 
   h3 {
-    @include fontStyle($main, $header-font, normal, 40px, uppercase);
+    font-size: 40px;
   }
 
   h4 {
-    @include fontStyle($background, $header-font, normal, 24px, uppercase);
+    font-size: 24px;
   }
 
   h5 {
-    @include fontStyle($secondary, $main-font, normal, 20px, uppercase);
+    font-size: 20px;
     letter-spacing: 3.38px;
   }
 
   p {
-    @include fontStyle($secondary, $main-font, normal, 16px, none);
+    font-size: 16px;
     line-height: 28px;
+  }
+
+  strong {
+    margin-right: 20px;
   }
 
   // Header
 
   header {
     margin-top: 0;
-    margin-left: 39px;
+    margin-left: 40px;
   }
 
   header::before {
@@ -162,7 +187,7 @@ nav a:focus::before {
   }
 
   nav a {
-    @include fontStyle($main, $main-font, normal, 14px, uppercase);
+    font-size: 14px;
     letter-spacing: 2.36px;
   }
 
@@ -171,31 +196,35 @@ nav a:focus::before {
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $widthSmartphone) {
   h1 {
-    @include fontStyle($main, $header-font, normal, 80px, uppercase);
+    font-size: 80px;
   }
 
   h2 {
-    @include fontStyle($main, $header-font, normal, 56px, uppercase);
+    font-size: 56px;
   }
 
   h3 {
-    @include fontStyle($main, $header-font, normal, 24px, uppercase);
+    font-size: 24px;
   }
 
   h4 {
-    @include fontStyle($background, $header-font, normal, 16px, uppercase);
+    font-size: 16px;
   }
 
   h5 {
-    @include fontStyle($secondary, $main-font, normal, 16px, uppercase);
+    font-size: 16px;
     letter-spacing: 2.7px;
   }
 
   p {
-    @include fontStyle($secondary, $main-font, normal, 15px, none);
+    font-size: 15px;
     line-height: 25px;
+  }
+
+  strong {
+    margin-right: 16px;
   }
 
   // Header
@@ -240,7 +269,7 @@ nav a:focus::before {
   }
 
   nav a {
-    @include fontStyle($main, $main-font, normal, 16px, uppercase);
+    font-size: 16px;
     letter-spacing: 2.7px;
   }
 

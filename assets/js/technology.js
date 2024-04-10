@@ -8,45 +8,84 @@ async function fetchData(index) {
   }
 }
 
+function generateDestinations(technology) {
+  const x = window.matchMedia("(max-width: 1260px)");
+
+  const text = document.querySelector(".text");
+  const image = document.querySelector(".image");
+
+  const title = text.querySelector("h3");
+  const description = text.querySelector("p");
+
+  image.innerHTML = "";
+  if (title) {
+    text.removeChild(title);
+  }
+  if (description) {
+    text.removeChild(description);
+  }
+
+  const nameElement = document.createElement("h3");
+  nameElement.innerText = technology.name;
+  text.appendChild(nameElement);
+
+  const textElement = document.createElement("p");
+  textElement.textContent = technology.description;
+  text.appendChild(textElement);
+
+  const imageElement = document.createElement("img");
+  if (x.matches) {
+    imageElement.src = technology.images.landscape;
+  } else {
+    imageElement.src = technology.images.portrait;
+  }
+  imageElement.alt = `${technology.name} planet image`;
+  image.appendChild(imageElement);
+}
+
+////// Add active classList and change content //////
+
+function removeActiveClass() {
+  btns.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+}
+
+let currentIndex = 0;
+
+// Function to handle navigation with keyboard
+function keyboardNavigation(e) {
+  // Check if left or right arrow key is pressed
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    removeActiveClass();
+
+    // Update currentIndex with constraint
+    currentIndex = Math.max(
+      0,
+      Math.min(currentIndex + (e.key === "ArrowLeft" ? -1 : 1), 2)
+    );
+
+    btns[currentIndex].classList.add("active");
+    fetchData(currentIndex);
+  }
+}
+
+// Default content
 window.onload = () => {
   fetchData(0);
 };
 
-const firstBtn = document.querySelector(".btn:nth-child(1)");
-const secondBtn = document.querySelector(".btn:nth-child(2)");
-const thirdBtn = document.querySelector(".btn:nth-child(3)");
+// Content on click and keydown
+let btns = document.querySelectorAll(".btn");
 
-firstBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(0);
-});
-secondBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(1);
-});
-thirdBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(2);
-});
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    fetchData(i);
 
-function generateDestinations(technology) {
-  const x = window.matchMedia("(max-width: 1360px)");
-
-  const title = document.querySelector(".text h3");
-  const text = document.querySelector(".text p");
-  const image = document.querySelector("main img");
-
-  image.innerHTML = "";
-  text.innerHTML = "";
-
-  title.innerText = technology.name;
-
-  text.innerText = technology.description;
-
-  if (x.matches) {
-    image.src = technology.images.landscape;
-  } else {
-    image.src = technology.images.portrait;
-  }
-  image.alt = `${technology.name} planet image`;
+    removeActiveClass();
+    btns[i].classList.add("active");
+  });
 }
+
+document.addEventListener("keydown", keyboardNavigation);

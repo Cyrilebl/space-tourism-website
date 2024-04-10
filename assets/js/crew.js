@@ -8,32 +8,6 @@ async function fetchData(index) {
   }
 }
 
-window.onload = () => {
-  fetchData(0);
-};
-
-const firstBtn = document.querySelector(".btn:nth-child(1)");
-const secondBtn = document.querySelector(".btn:nth-child(2)");
-const thirdBtn = document.querySelector(".btn:nth-child(3)");
-const fourthBtn = document.querySelector(".btn:nth-child(4)");
-
-firstBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(0);
-});
-secondBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(1);
-});
-thirdBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(2);
-});
-fourthBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetchData(3);
-});
-
 function generateDestinations(crew) {
   const text = document.querySelector(".text");
   const image = document.querySelector(".image");
@@ -58,3 +32,50 @@ function generateDestinations(crew) {
   imageElement.alt = `${crew.name} planet image`;
   image.appendChild(imageElement);
 }
+
+////// Add active classList and change content //////
+
+function removeActiveClass() {
+  btns.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+}
+
+let currentIndex = 0;
+
+// Function to handle navigation with keyboard
+function keyboardNavigation(e) {
+  // Check if left or right arrow key is pressed
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    removeActiveClass();
+
+    // Update currentIndex with constraint
+    currentIndex = Math.max(
+      0,
+      Math.min(currentIndex + (e.key === "ArrowLeft" ? -1 : 1), 3)
+    );
+
+    btns[currentIndex].classList.add("active");
+    fetchData(currentIndex);
+  }
+}
+
+// Default content
+window.onload = () => {
+  fetchData(0);
+};
+
+// Content on click and keydown
+let btns = document.querySelectorAll(".btn");
+
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    fetchData(i);
+
+    removeActiveClass();
+    btns[i].classList.add("active");
+  });
+}
+
+document.addEventListener("keydown", keyboardNavigation);

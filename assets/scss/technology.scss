@@ -25,19 +25,6 @@ main h5 {
   grid-area: title;
 }
 
-strong {
-  margin-right: 24px;
-  opacity: 0.25;
-}
-
-main img {
-  grid-area: img;
-  justify-self: end;
-  object-fit: cover;
-  max-width: 100%;
-  min-height: 100%;
-}
-
 .text {
   grid-area: text;
   align-self: center;
@@ -61,18 +48,32 @@ main img {
 }
 
 .btn {
+  @include fontStyle($main, $header-font, normal, 32px, uppercase);
   width: 80px;
   height: 80px;
   border-radius: 50px;
-  font-family: $header-font;
-  color: $main;
-  font-size: 32px;
   background-color: transparent;
   border: 1px solid rgba($main, 0.25);
   cursor: pointer;
 }
 
-@media all and (max-width: 1360px) {
+.active {
+  color: $background;
+  background-color: $main;
+}
+
+.image {
+  grid-area: img;
+  justify-self: end;
+}
+
+.image img {
+  object-fit: cover;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+@media all and (max-width: $widthTablet) {
   body {
     background-image: url("../technology/background-technology-tablet.jpg");
     max-height: none;
@@ -97,15 +98,6 @@ main img {
     margin-left: 40px;
   }
 
-  strong {
-    margin-right: 20px;
-  }
-
-  main img {
-    justify-self: center;
-    width: 100%;
-  }
-
   .text {
     text-align: center;
     justify-self: center;
@@ -128,13 +120,22 @@ main img {
   }
 
   .btn {
+    font-size: 24px;
     width: 60px;
     height: 60px;
-    font-size: 24px;
+  }
+
+  .image {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .image img {
+    width: 100%;
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $widthSmartphone) {
   body {
     background-image: url("../technology/background-technology-mobile.jpg");
   }
@@ -151,10 +152,6 @@ main img {
     text-align: center;
   }
 
-  strong {
-    margin-right: 16px;
-  }
-
   .text h3 {
     margin: 9px 0 16px 0;
   }
@@ -164,8 +161,8 @@ main img {
   }
 
   .btn {
+    font-size: 16px;
     width: 40px;
     height: 40px;
-    font-size: 16px;
   }
 }

@@ -11,7 +11,7 @@ h2 {
   color: white;
   font-family: "Bellefair", serif;
   font-weight: normal;
-  font-size: 100px;
+  font-size: 80px;
   text-transform: uppercase; }
 
 h3 {
@@ -55,13 +55,9 @@ p {
   line-height: 32px;
   letter-spacing: 1.5px; }
 
-.data p {
-  color: #d0d6f9;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: normal;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2.35px; }
+strong {
+  margin-right: 24px;
+  opacity: 0.25; }
 
 *,
 ::before,
@@ -113,66 +109,60 @@ nav strong {
 
 nav a::before {
   position: absolute;
-  content: "";
   top: 55px;
   left: 0;
-  background-color: white;
+  content: "";
   width: 100%;
   height: 3px;
-  opacity: 50.21%;
+  background-color: rgba(255, 255, 255, 0.5);
   scale: 0;
   transition: 0.4s; }
 
 nav a:hover::before {
   scale: 100%; }
 
-nav a:focus::before {
-  opacity: 100%; }
+.activeNav {
+  position: relative; }
+
+.activeNav:after {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: white; }
 
 .hamburger {
   display: none; }
 
 @media all and (max-width: 1360px) {
+  header::before {
+    width: 30%; } }
+@media all and (max-width: 1260px) {
   h2 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 80px;
-    text-transform: uppercase; }
+    font-size: 70px; }
 
   h3 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 40px;
-    text-transform: uppercase; }
+    font-size: 40px; }
 
   h4 {
-    color: #0b0d17;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 24px;
-    text-transform: uppercase; }
+    font-size: 24px; }
 
   h5 {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 20px;
-    text-transform: uppercase;
     letter-spacing: 3.38px; }
 
   p {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: none;
     line-height: 28px; }
+
+  strong {
+    margin-right: 20px; }
 
   header {
     margin-top: 0;
-    margin-left: 39px; }
+    margin-left: 40px; }
 
   header::before {
     width: 0; }
@@ -182,59 +172,34 @@ nav a:focus::before {
     padding: 0 48px; }
 
   nav a {
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 14px;
-    text-transform: uppercase;
     letter-spacing: 2.36px; }
 
   nav strong {
     display: none; } }
 @media all and (max-width: 600px) {
   h1 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 80px;
-    text-transform: uppercase; }
+    font-size: 80px; }
 
   h2 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 56px;
-    text-transform: uppercase; }
+    font-size: 56px; }
 
   h3 {
-    color: white;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 24px;
-    text-transform: uppercase; }
+    font-size: 24px; }
 
   h4 {
-    color: #0b0d17;
-    font-family: "Bellefair", serif;
-    font-weight: normal;
-    font-size: 16px;
-    text-transform: uppercase; }
+    font-size: 16px; }
 
   h5 {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: uppercase;
     letter-spacing: 2.7px; }
 
   p {
-    color: #d0d6f9;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 15px;
-    text-transform: none;
     line-height: 25px; }
+
+  strong {
+    margin-right: 16px; }
 
   header {
     margin-left: 24px; }
@@ -271,11 +236,7 @@ nav a:focus::before {
     z-index: 2; }
 
   nav a {
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: normal;
     font-size: 16px;
-    text-transform: uppercase;
     letter-spacing: 2.7px; }
 
   nav strong {
@@ -290,10 +251,6 @@ body {
 main {
   margin: 50px 160px 0 160px; }
 
-strong {
-  margin-right: 24px;
-  opacity: 0.25; }
-
 .descriptions {
   display: flex;
   justify-content: center;
@@ -301,10 +258,15 @@ strong {
   gap: 250px;
   margin-top: 50px; }
 
-.descriptions img {
+.image img {
   width: 445px;
-  height: 445px; }
+  height: 445px;
+  transform: rotate(0);
+  animation: rotate 120s linear infinite; }
 
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg); } }
 .links {
   display: flex;
   gap: 35px; }
@@ -324,10 +286,9 @@ strong {
   content: "";
   bottom: -12px;
   left: 0;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: 3px;
-  opacity: 50.21%;
   scale: 0;
   transition: 0.4s; }
 
@@ -337,8 +298,9 @@ strong {
 .links a:hover::before {
   scale: 100%; }
 
-.links a:focus::before {
-  opacity: 100%; }
+.active {
+  text-decoration: underline 3px white;
+  text-underline-offset: 12px; }
 
 .text {
   width: 445px;
@@ -354,9 +316,15 @@ strong {
   gap: 80px; }
 
 .data p {
+  color: #d0d6f9;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2.35px;
   margin-bottom: 12px; }
 
-@media all and (max-width: 1360px) {
+@media all and (max-width: 1260px) {
   body {
     background-image: url("../destination/background-destination-tablet.jpg");
     max-height: none;
@@ -365,9 +333,6 @@ strong {
   main {
     margin: 40px; }
 
-  strong {
-    margin-right: 20px; }
-
   .descriptions {
     flex-direction: column;
     justify-content: center;
@@ -375,7 +340,7 @@ strong {
     gap: 53px;
     margin-top: 60px; }
 
-  .descriptions img {
+  .image img {
     width: 300px;
     height: 300px; }
 
@@ -407,9 +372,13 @@ strong {
     gap: 26px;
     margin-top: 32px; }
 
-  .descriptions img {
+  .image img {
     width: 170px;
     height: 170px; }
+
+  .links a {
+    font-size: 14px;
+    letter-spacing: 2.35px; }
 
   .text {
     width: 327px; }

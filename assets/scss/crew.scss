@@ -22,11 +22,6 @@ main {
     "btn img";
 }
 
-strong {
-  margin-right: 24px;
-  opacity: 0.25;
-}
-
 .image {
   grid-area: img;
   justify-self: end;
@@ -72,7 +67,11 @@ main h4 {
   cursor: pointer;
 }
 
-@media all and (max-width: 1360px) {
+.active {
+  opacity: 1;
+}
+
+@media all and (max-width: $widthTablet) {
   body {
     background-image: url("../crew/background-crew-tablet.jpg");
     max-height: none;
@@ -92,10 +91,6 @@ main h4 {
       "text"
       "btn"
       "img";
-  }
-
-  strong {
-    margin-right: 20px;
   }
 
   .image {
@@ -124,7 +119,7 @@ main h4 {
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $widthSmartphone) {
   body {
     background-image: url("../crew/background-crew-mobile.jpg");
   }
@@ -143,10 +138,6 @@ main h4 {
 
   main h5 {
     justify-self: center;
-  }
-
-  strong {
-    margin-right: 16px;
   }
 
   .image {
