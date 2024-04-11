@@ -5,7 +5,6 @@ body {
   background-image: url("../crew/background-crew-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 100vh;
 }
 
 // Crew
@@ -73,8 +72,6 @@ main h4 {
 @media all and (max-width: $widthTablet) {
   body {
     background-image: url("../crew/background-crew-tablet.jpg");
-    max-height: none;
-    min-height: 100vh;
   }
 
   // Crew

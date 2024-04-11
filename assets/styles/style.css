@@ -68,7 +68,8 @@ strong {
 
 body {
   background-color: #0b0d17;
-  height: 100vh; }
+  max-height: 100vh;
+  overflow: hidden; }
 
 header {
   display: flex;
@@ -164,6 +165,10 @@ nav a:hover::before {
   strong {
     margin-right: 20px; }
 
+  body {
+    max-height: none;
+    overflow: auto; }
+
   header {
     margin-top: 0;
     margin-left: 40px; }
@@ -214,9 +219,9 @@ nav a:hover::before {
     height: 40px; }
 
   nav {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -226,10 +231,10 @@ nav a:hover::before {
     min-height: 100vh;
     backdrop-filter: blur(40px);
     z-index: 2;
-    margin-right: -100%; }
+    transition: 0.4s; }
 
   nav.mobile {
-    margin-right: 0; }
+    right: 0; }
 
   .hamburger {
     display: block;
@@ -256,8 +261,7 @@ body {
   background-image: url("../home/background-home-desktop.jpg");
   background-repeat: no-repeat;
   background-position: right;
-  background-size: cover;
-  min-height: 100vh; }
+  background-size: cover; }
 
 .introduction {
   display: flex;

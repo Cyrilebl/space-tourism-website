@@ -61,7 +61,8 @@ strong {
 
 body {
   background-color: $background;
-  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 // Header
@@ -175,6 +176,11 @@ nav a:hover::before {
     margin-right: 20px;
   }
 
+  body {
+    max-height: none;
+    overflow: auto;
+  }
+
   // Header
 
   header {
@@ -245,9 +251,9 @@ nav a:hover::before {
   }
 
   nav {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -257,11 +263,11 @@ nav a:hover::before {
     min-height: 100vh;
     backdrop-filter: blur(40px);
     z-index: 2;
-    margin-right: -100%;
+    transition: 0.4s;
   }
 
   nav.mobile {
-    margin-right: 0;
+    right: 0;
   }
 
   .hamburger {
