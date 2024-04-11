@@ -67,8 +67,7 @@ strong {
   box-sizing: border-box; }
 
 body {
-  background-color: #0b0d17;
-  min-height: 100vh; }
+  background-color: #0b0d17; }
 
 header {
   display: flex;
@@ -255,18 +254,17 @@ nav a:hover::before {
 body {
   background-image: url("../destination/background-destination-desktop.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-  max-height: 100vh; }
+  background-size: cover; }
 
 main {
-  margin: 50px 160px 0 160px; }
+  margin: 75px 160px 80px 160px; }
 
 .descriptions {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 250px;
-  margin-top: 50px; }
+  margin-top: 100px; }
 
 .image img {
   width: 445px;
@@ -336,12 +334,11 @@ main {
 
 @media all and (max-width: 1260px) {
   body {
-    background-image: url("../destination/background-destination-tablet.jpg");
-    max-height: none;
-    min-height: 100vh; }
+    background-image: url("../destination/background-destination-tablet.jpg"); }
 
   main {
-    margin: 40px; }
+    margin: 40px;
+    margin-bottom: 60px; }
 
   .descriptions {
     flex-direction: column;
@@ -367,14 +364,14 @@ main {
 
   .data {
     justify-content: center;
-    text-align: center;
-    margin-bottom: 62px; } }
+    text-align: center; } }
 @media all and (max-width: 600px) {
   body {
     background-image: url("../destination/background-destination-mobile.jpg"); }
 
   main {
-    margin: 34px 24px; }
+    margin: 34px 24px;
+    margin-bottom: 60px; }
 
   main h5 {
     text-align: center; }
@@ -399,7 +396,6 @@ main {
 
   .data {
     flex-direction: column;
-    gap: 32px;
-    margin-bottom: 58px; } }
+    gap: 32px; } }
 
 /*# sourceMappingURL=destination.css.map */

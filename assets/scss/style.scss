@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
+  min-height: 100vh;
 }
 
 // Introduction
@@ -65,7 +66,6 @@ body {
   body {
     background-image: url("../home/background-home-tablet.jpg");
     background-position: bottom;
-    background-size: cover;
   }
 
   // Introduction

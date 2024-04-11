@@ -5,13 +5,12 @@ body {
   background-image: url("../destination/background-destination-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 100vh;
 }
 
 // Destination
 
 main {
-  margin: 50px 160px 0 160px;
+  margin: 75px 160px 80px 160px;
 }
 
 .descriptions {
@@ -19,7 +18,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 250px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .image img {
@@ -97,14 +96,13 @@ main {
 @media all and (max-width: $widthTablet) {
   body {
     background-image: url("../destination/background-destination-tablet.jpg");
-    max-height: none;
-    min-height: 100vh;
   }
 
   // Destination
 
   main {
     margin: 40px;
+    margin-bottom: 60px;
   }
 
   .descriptions {
@@ -137,7 +135,6 @@ main {
   .data {
     justify-content: center;
     text-align: center;
-    margin-bottom: 62px;
   }
 }
 
@@ -150,6 +147,7 @@ main {
 
   main {
     margin: 34px 24px;
+    margin-bottom: 60px;
   }
 
   main h5 {
@@ -182,6 +180,5 @@ main {
   .data {
     flex-direction: column;
     gap: 32px;
-    margin-bottom: 58px;
   }
 }

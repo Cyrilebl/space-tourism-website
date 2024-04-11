@@ -67,8 +67,7 @@ strong {
   box-sizing: border-box; }
 
 body {
-  background-color: #0b0d17;
-  min-height: 100vh; }
+  background-color: #0b0d17; }
 
 header {
   display: flex;
@@ -256,7 +255,6 @@ body {
   background-image: url("../technology/background-technology-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 100vh;
   overflow: hidden; }
 
 main {

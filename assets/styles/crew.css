@@ -67,8 +67,7 @@ strong {
   box-sizing: border-box; }
 
 body {
-  background-color: #0b0d17;
-  min-height: 100vh; }
+  background-color: #0b0d17; }
 
 header {
   display: flex;
