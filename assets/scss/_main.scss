@@ -59,6 +59,11 @@ strong {
   box-sizing: border-box;
 }
 
+body {
+  background-color: $background;
+  min-height: 100vh;
+}
+
 // Header
 
 header {
@@ -276,5 +281,13 @@ nav a:hover::before {
   nav strong {
     display: initial;
     margin-right: 11px;
+  }
+
+  nav a::before {
+    top: 30px;
+  }
+
+  .activeNav:after {
+    top: 30px;
   }
 }
