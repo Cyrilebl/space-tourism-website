@@ -257,7 +257,8 @@ nav a:hover::before {
     top: 30px; }
 
   .activeNav:after {
-    top: 25px; } }
+    top: 25px;
+    height: 2px; } }
 body {
   background-image: url("../technology/background-technology-desktop.jpg");
   background-repeat: no-repeat;

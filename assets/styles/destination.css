@@ -257,7 +257,8 @@ nav a:hover::before {
     top: 30px; }
 
   .activeNav:after {
-    top: 25px; } }
+    top: 25px;
+    height: 2px; } }
 body {
   background-image: url("../destination/background-destination-desktop.jpg");
   background-repeat: no-repeat;

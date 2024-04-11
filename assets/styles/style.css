@@ -257,7 +257,8 @@ nav a:hover::before {
     top: 30px; }
 
   .activeNav:after {
-    top: 25px; } }
+    top: 25px;
+    height: 2px; } }
 body {
   background-image: url("../home/background-home-desktop.jpg");
   background-repeat: no-repeat;
@@ -268,7 +269,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 180px 50px 180px; }
+  margin: 0 180px 320px 180px; }
 
 .introduction__text {
   margin-top: 150px;
