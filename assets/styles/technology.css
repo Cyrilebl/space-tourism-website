@@ -167,6 +167,7 @@ nav a:hover::before {
 
   body {
     max-height: none;
+    min-height: 100vh;
     overflow: auto; }
 
   header {
@@ -256,7 +257,7 @@ nav a:hover::before {
     top: 30px; }
 
   .activeNav:after {
-    top: 30px; } }
+    top: 25px; } }
 body {
   background-image: url("../technology/background-technology-desktop.jpg");
   background-repeat: no-repeat;

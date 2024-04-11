@@ -178,6 +178,7 @@ nav a:hover::before {
 
   body {
     max-height: none;
+    min-height: 100vh;
     overflow: auto;
   }
 
@@ -294,6 +295,6 @@ nav a:hover::before {
   }
 
   .activeNav:after {
-    top: 30px;
+    top: 25px;
   }
 }
