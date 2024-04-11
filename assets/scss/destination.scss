@@ -127,6 +127,7 @@ main {
   .text {
     width: 573px;
     text-align: center;
+    margin-top: 32px;
   }
 
   .text h2 {
@@ -179,6 +180,8 @@ main {
   }
 
   .data {
+    flex-direction: column;
+    gap: 32px;
     margin-bottom: 58px;
   }
 }
