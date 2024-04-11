@@ -66,6 +66,10 @@ strong {
   padding: 0;
   box-sizing: border-box; }
 
+body {
+  background-color: #0b0d17;
+  min-height: 100vh; }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -241,7 +245,13 @@ nav a:hover::before {
 
   nav strong {
     display: initial;
-    margin-right: 11px; } }
+    margin-right: 11px; }
+
+  nav a::before {
+    top: 30px; }
+
+  .activeNav:after {
+    top: 30px; } }
 body {
   background-image: url("../destination/background-destination-desktop.jpg");
   background-repeat: no-repeat;
