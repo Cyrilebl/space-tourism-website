@@ -11,6 +11,22 @@ $secondary: rgb(208, 214, 249);
 $widthTablet: 1260px;
 $widthSmartphone: 600px;
 
+// Animation for fetchData
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.anim {
+  animation: opacity 0.5s linear;
+}
+
 h1 {
   @include fontStyle($main, $header-font, normal, 150px, uppercase);
 }

@@ -41,6 +41,10 @@ function generateDestinations(technology) {
   }
   imageElement.alt = `${technology.name} planet image`;
   image.appendChild(imageElement);
+
+  main.querySelectorAll(":not(h5):not(strong)").forEach(function (element) {
+    element.classList.toggle("anim");
+  });
 }
 
 ////// Add active classList and change content //////

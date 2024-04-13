@@ -28,3 +28,9 @@ navLinks.forEach((navLink) => {
     navLink.classList.add("activeNav");
   }
 });
+
+// Remove anim classlist on fetchData
+const main = document.querySelector("main");
+main.addEventListener("animationend", (event) => {
+  event.target.classList.remove("anim");
+});

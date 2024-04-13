@@ -47,6 +47,10 @@ function generateDestinations(destinations) {
   const travelElement = document.createElement("h6");
   travelElement.textContent = destinations.travel;
   travel.appendChild(travelElement);
+
+  main.querySelectorAll(":not(h5):not(strong)").forEach(function (element) {
+    element.classList.toggle("anim");
+  });
 }
 
 ////// Add active classList and change content //////
